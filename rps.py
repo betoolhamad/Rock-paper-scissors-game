@@ -7,20 +7,22 @@ moves = ['rock', 'paper', 'scissors']
 class Player:  # we have two classes #1 is Player #2 is  Game
 
     def __init__(self):
-        self.my_move = Player.move(self)
+        self.my_move = RockPlayer.move(self)
         """To store the move method of class player in the my_move.
         To be accessible by Cycle class.
         It's store Rock at first time."""
-        self.their_move = Player.move(self)
+        self.their_move = RockPlayer.move(self)
         """This will be the same move of
         class at the first time when initlze it."""
-
-    def move(self):
-        return 'rock'
 
     def learn(self, my_move, their_move):
         self.my_move = my_move
         self.their_move = their_move
+
+
+class RockPlayer(Player):
+    def move(self):
+        return 'rock'
 
 
 class RefelctPlayer(Player):
@@ -117,6 +119,19 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), random.choice([Player(), RandomPlayer(),
-                                             RefelctPlayer(), CyclePlayer()]))
+    strategies = {
+        "1": RockPlayer(),
+        "2": RandomPlayer(),
+        "3": CyclePlayer(),
+        "4": RefelctPlayer()
+    }
+
+    user_input = input("Select the player strategy "
+                       "you want to play against:\n"
+                       "1- Rock Player\n"
+                       "2- Random Player\n"
+                       "3- Cycle Player\n"
+                       "4- Reflect Player\n")
+
+    game = Game(HumanPlayer(), strategies[user_input])
     game.play_game()
