@@ -16,7 +16,7 @@ The project has 4 class in addation to human class, each class has diffrent stra
 4. Cycle Stratgy.
 
 - For HumanPlayer class, it's asks the human user what move to make.
-- The starter Player class always plays 'rock'.
+- The starter RockPlayer class always plays 'rock'.
 - The RandomPlayer Class it's chooses its move at random. It should return one of 'rock', 'paper', or 'scissors' at random.
 - The ReflectPlayer Class it's remembers what move the opponent played last round, and plays that move this round
 - The CyclePlayer Class it's remembers what move it played last round, and cycles through the different moves. (If it played 'rock' this round, it should play 'paper' in the next round.)
